@@ -1,0 +1,16 @@
+<div class="note-meta">
+  <a [routerLink]="['/profile', note.creator.email]">
+    <img [src]="note.author.image" />
+  </a>
+
+  <div class="info">
+    <a class="author" [routerLink]="['/profile', note.author.username]">
+      {{ note.author.username }}
+    </a>
+    <span class="date">
+      {{ note.createdAt | date: 'longDate' }}
+    </span>
+  </div>
+
+  <ng-content></ng-content>
+</div>

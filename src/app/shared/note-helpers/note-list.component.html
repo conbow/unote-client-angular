@@ -1,0 +1,13 @@
+<note-preview *ngFor="let note of results" [note]="note"></note-preview>
+
+<div class="note-preview" [hidden]="!loading">Loading notes...</div>
+
+<div class="note-preview" [hidden]="loading || results.length">You don't have any notes</div>
+
+<nav [hidden]="loading || totalPages.length <= 1">
+  <ul class="pagination">
+    <li class="page-item" [ngClass]="{'active': pageNumber === currentPage}" *ngFor="let pageNumber of totalPages" (click)="setPageTo(pageNumber)">
+      <a class="page-link" href="#">{{ pageNumber }}</a>
+    </li>
+  </ul>
+</nav>

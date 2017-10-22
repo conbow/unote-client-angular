@@ -1,0 +1,82 @@
+<div class="container">
+  <div class="mt-3">
+    <h2>Account</h2>
+  </div>
+  <p class="lead">Modify your account</p>
+  <div class="row">
+    <form class="col-md-6" [formGroup]="accountForm" (ngSubmit)="submitForm()">
+      <list-errors [errors]="errors"></list-errors>
+      <fieldset [disabled]="isSubmitting">
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" class="form-control" id="email" placeholder="Email" formControlName="email">
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" class="form-control" id="password" placeholder="Password" formControlName="password">
+        </div>
+        <div class="form-group">
+          <label for="confirmPassword">Confirm Password</label>
+          <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm Password" formControlName="confirmPassword">
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="!accountForm.valid">Save</button>
+        <p class="mt-3">If you no longer need your account you may delete it below, this cannot be undone.</p>
+        <button class="btn btn-danger" [ngClass]="{disabled: isDeleting}" (click)="deleteAccount()">Delete Account</button>
+      </fieldset>
+    </form>
+  </div>
+</div>
+
+
+<!--
+<div class="settings-page">
+  <div class="container page">
+    <div class="row">
+      <div class="col-md-6 offset-md-3 col-xs-12">
+
+        <h1 class="text-xs-center">Your Settings</h1>
+
+        <list-errors [errors]="errors"></list-errors>
+
+        <form [formGroup]="settingsForm" (ngSubmit)="submitForm()">
+          <fieldset [disabled]="isSubmitting">
+
+            <fieldset class="form-group">
+              <input class="form-control" type="text" placeholder="URL of profile picture" formControlName="image" />
+            </fieldset>
+
+            <fieldset class="form-group">
+              <input class="form-control form-control-lg" type="text" placeholder="Username" formControlName="username" />
+            </fieldset>
+
+            <fieldset class="form-group">
+              <textarea class="form-control form-control-lg" rows="8" placeholder="Short bio about you" formControlName="bio">
+              </textarea>
+            </fieldset>
+
+            <fieldset class="form-group">
+              <input class="form-control form-control-lg" type="email" placeholder="Email" formControlName="email" />
+            </fieldset>
+
+            <fieldset class="form-group">
+              <input class="form-control form-control-lg" type="password" placeholder="New Password" formControlName="password" />
+            </fieldset>
+
+            <button class="btn btn-lg btn-primary pull-xs-right" type="submit">
+              Update Settings
+            </button>
+
+          </fieldset>
+        </form>
+
+        <hr />
+
+        <button class="btn btn-outline-danger" (click)="logout()">
+          Or click here to logout.
+        </button>
+
+      </div>
+    </div>
+  </div>
+</div>
+-->
